@@ -1,0 +1,18 @@
+@use "../global/variables.scss";
+@use "../global/mixins.scss";
+
+.map__container {
+  height: 420px;
+}
+
+@media (min-width: variables.$width-tablet) {
+  .map__container {
+    height: 480px;
+  }
+}
+
+@media (min-width: variables.$width-desktop) {
+  .map__container {
+    height: 540px;
+  }
+}

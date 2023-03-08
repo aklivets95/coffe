@@ -1,0 +1,6 @@
+@use "../global/variables.scss";
+@use "../global/mixins.scss";
+
+.price {
+  @include mixins.price;
+}

@@ -1,0 +1,12 @@
+@use "../global/variables.scss";
+@use "../global/mixins.scss";
+
+.section-title {
+  @include mixins.h2-mobile;
+}
+
+@media (min-width: variables.$width-tablet) {
+  .section-title {
+    @include mixins.h2-desktop;
+  }
+}

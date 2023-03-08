@@ -1,0 +1,19 @@
+/* GLOBAL */
+@import "global/variables";
+@import "global/global";
+@import "global/fonts";
+@import "global/mixins.scss";
+
+/* BLOCKS */
+@import "blocks/header";
+@import "blocks/main.scss";
+@import "blocks/slider.scss";
+@import "blocks/badge.scss";
+@import "blocks/price.scss";
+@import "blocks/advantages.scss";
+@import "blocks/section-title.scss";
+@import "blocks/catalog.scss";
+@import "blocks/form.scss";
+@import "blocks/pagination.scss";
+@import "blocks/footer.scss";
+@import "blocks/map.scss";

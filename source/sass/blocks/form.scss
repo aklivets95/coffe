@@ -1,0 +1,511 @@
+@use "../global/variables.scss";
+@use "../global/mixins.scss";
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__filter {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.form__filter:not(:last-of-type) {
+  margin-bottom: 24.5px;
+}
+
+.form__filter-title {
+  padding: 0;
+  margin-bottom: 22px;
+  @include mixins.label;
+}
+
+.form__range-scale {
+  position: relative;
+  height: 2px;
+  background-color: variables.$light-grey;
+  width: 100%;
+  margin-bottom: 36.5px;
+}
+
+.form__range-bar {
+  position: absolute;
+  left: 0;
+  height: 4px;
+  background-color: variables.$primary-lighter;
+  top: -1px;
+}
+
+.form__range-toogle {
+  border: none;
+  outline: 2px solid variables.$primary-lighter;
+  outline-offset: -2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  padding: 0;
+  position: absolute;
+  cursor: pointer;
+  background-color: variables.$base-white;
+}
+
+.form__range-toogle::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: rgba(120, 89, 207, 0.25);
+  border-radius: 50%;
+  top: 4px;
+  left: 4px;
+  opacity: 0;
+  transition: all ease-in-out 0.4s;
+}
+
+.form__range-toogle:hover::after {
+  opacity: 1;
+}
+
+.form__range-toogle:focus::after {
+  opacity: 1;
+}
+
+.form__range-toogle:active::after {
+  opacity: 1;
+  background-color: variables.$base-primary;
+}
+
+.form__range--disabled {
+  .form__range-bar {
+    background-color: variables.$base-grey;
+  }
+
+  .form__range-toogle {
+    outline-color: variables.$base-grey;
+  }
+}
+
+.form__filter-title--price {
+  margin-bottom: 31px;
+}
+
+.form__range-toogle--min {
+  top: -9px;
+  left: -10px;
+}
+
+.form__range-toogle--max {
+  top: -9px;
+  right: -10px;
+}
+
+.form__range-wrapper {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.form__range-wrapper::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 2px;
+  background-color: variables.$base-grey;
+  left: 49%;
+  top: 49%;
+}
+
+.form__range-input {
+  border: none;
+  outline: 2px solid variables.$primary-lighter;
+  outline-offset: -2px;
+  border-radius: 4px;
+  background-color: variables.$base-white;
+  max-width: 118px;
+  padding: 7px 10px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.form__range-input:focus {
+  outline-color: variables.$primary-darker;
+}
+
+.form__range-input:disabled {
+  outline-color: variables.$light-grey;
+}
+
+.form__filter-availability-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 21.5px;
+}
+
+.form__filter-availability-radio {
+  position: relative;
+  cursor: pointer;
+}
+
+.form__filter-availability-label {
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: 34px;
+}
+
+.form__filter-availability-mark {
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  background-color: variables.$base-white;
+  border-radius: 50%;
+  outline: 2px solid variables.$base-grey;
+  outline-offset: -2px;
+  transition: all ease-in 0.4s;
+}
+
+.form__filter-availability-radio:hover {
+  .form__filter-availability-mark {
+    outline-color: variables.$primary-lighter;
+  }
+
+  .form__filter-availability-mark::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    opacity: 1;
+    background-color: variables.$primary-opacity;
+  }
+}
+
+.form__filter-availability-mark::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-color: variables.$primary-lighter;
+  border-radius: 50%;
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  opacity: 0;
+}
+
+.form__filter-availability-input[type="radio"]:checked+.form__filter-availability-mark {
+  outline-color: variables.$primary-lighter;
+}
+
+.form__filter-availability-input[type="radio"]:checked+.form__filter-availability-mark::after {
+  opacity: 1;
+}
+
+.form__filter-availability-input:disabled + .form__filter-availability-mark {
+  outline-color: variables.$light-grey;
+  background-color: transparent;
+}
+
+.form__filter-availability-input:disabled ~ .form__filter-availability-label {
+  color: variables.$base-grey;
+}
+
+.form__filter-availability-input[type="radio"]:disabled:checked+.form__filter-availability-mark {
+  outline-color: variables.$light-grey;
+  background-color: transparent;
+}
+
+.form__filter-availability-input[type="radio"]:disabled:checked+.form__filter-availability-mark::after {
+  opacity: 1;
+  background-color: variables.$light-grey;
+}
+
+.form__filter-country {
+  margin-bottom: 31px;
+}
+
+.form__filter-country-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form__filter-country-checkbox {
+  position: relative;
+  cursor: pointer;
+}
+
+.form__filter-country-checkbox:hover {
+  .form__filter-country-mark {
+    outline: 2px solid variables.$primary-lighter;
+    outline-offset: -2px;
+    background-color: rgba(120, 89, 207, 0.25);
+  }
+}
+
+.form__filter-country-label {
+  font-size: 16px;
+  line-height: 24px;
+  padding-left: 52px;
+}
+
+.form__filter-country-mark {
+  position: absolute;
+  left: 0;
+  width: 42px;
+  height: 24px;
+  background-color: variables.$base-grey;
+  border-radius: 12px;
+  transition: background-color ease-in 0.4s;
+}
+
+.form__filter-country-mark::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: variables.$base-white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: left ease-in 0.4s;
+}
+
+.form__filter-country-input[type="checkbox"]:checked+.form__filter-country-mark {
+  background-color: variables.$base-primary;
+}
+
+.form__filter-country-input[type="checkbox"]:checked+.form__filter-country-mark::after {
+  left: 20px;
+}
+
+.form__filter-country-input[type="checkbox"]:disabled +.form__filter-country-mark {
+  background-color: variables.$light-grey;
+}
+
+.form__filter-country-input[type="checkbox"]:disabled ~ .form__filter-country-label {
+  color: variables.$base-grey;
+}
+
+.form__filter-country-input[type="checkbox"]:disabled:checked +.form__filter-country-mark::after {
+  background-color: variables.$base-grey;
+}
+
+.form__submit-button {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 24px;
+  background-color: variables.$base-primary;
+  color: variables.$base-white;
+  padding: 10.5px 14.5px;
+  border: none;
+  border-radius: 4px;
+  align-self: center;
+  margin-bottom: 24.5px;
+  cursor: pointer;
+  transition: all ease-in-out 0.4s;
+}
+
+.form__submit-button:hover {
+  background-color: variables.$primary-lighter;
+}
+
+.form__submit-button:focus {
+  background-color: variables.$primary-lighter;
+}
+
+.form__submit-button:active {
+  background-color: variables.$primary-darker;
+}
+
+.form__submit-button:disabled {
+  background-color: variables.$base-grey;
+}
+
+.form__reset-button {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  background-color: variables.$base-white;
+  color: variables.$base-primary;
+  border: none;
+  align-self: center;
+  padding: 10.5px 16.5px;
+  cursor: pointer;
+  transition: all ease-in-out 0.4s;
+  border-radius: 4px;
+}
+
+.form__reset-button:hover {
+  color: variables.$base-white;
+  background-color: variables.$primary-lighter;
+}
+
+.form__reset-button:focus {
+  color: variables.$base-white;
+  background-color: variables.$primary-lighter;
+}
+
+.form__reset-button:active {
+  color: variables.$base-white;
+  background-color: variables.$primary-darker;
+}
+
+.form__reset-button:active {
+  color: variables.$base-white;
+  background-color: variables.$light-grey;
+}
+
+.form__button-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: variables.$width-tablet) {
+  .form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-right: 34px;
+  }
+
+  .form__filter:not(:last-of-type) {
+    margin-bottom: 0;
+  }
+
+  .form__filter-title {
+    margin-bottom: 19px;
+  }
+
+  .form__filter-title--price {
+    margin-bottom: 28px;
+  }
+
+  .form__filter-price {
+    margin-right: 21px;
+  }
+
+  .form__filter-availability {
+    margin-right: 38.5px;
+    min-width: 210px;
+  }
+
+  .form__button-wrapper {
+    flex-direction: row;
+    grid-column: 1 / -1;
+    justify-self: center;
+    gap: 30px;
+  }
+
+  .form__submit-button {
+    margin: 0;
+    padding: 8px 9px;
+  }
+
+  .form__reset-button {
+    padding: 8px 6px;
+  }
+
+  .form__range {
+    margin-left: 7px;
+  }
+
+  .form__range-input {
+    padding: 8px 10px;
+    max-width: 93px;
+    -moz-appearance: textfield;
+  }
+
+  .form__range-input::-webkit-outer-spin-button,
+  .form__range-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .form__range-scale {
+    min-width: 220px;
+    margin-bottom: 32px;
+  }
+
+  .form__filter-country {
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: variables.$width-desktop) {
+  .form {
+    display: flex;
+    padding: 0;
+  }
+
+  .form__range {
+    margin: 0;
+  }
+
+  .form__range-input {
+    max-width: 134px;
+  }
+
+  .form__range-scale {
+    width: 318px;
+    margin-bottom: 34px;
+  }
+
+  .form__filter:not(:last-of-type) {
+    margin-bottom: 30px;
+  }
+
+  .form__filter-price {
+    margin-right: 0;
+  }
+
+  .form__filter-availability {
+    margin-right: 0;
+  }
+
+  .form__filter-title {
+    margin-bottom: 20px;
+  }
+
+  .form__filter-title--price {
+    margin-bottom: 30px;
+  }
+
+  .form__filter-availability-list {
+    gap: 20px;
+  }
+
+  .form__button-wrapper {
+    gap: 18px;
+  }
+
+  .form__reset-button {
+    max-height: 40px;
+    min-width: 150px;
+    padding: 20px 9px;
+    line-height: 0;
+  }
+
+  .form__submit-button {
+    max-height: 40px;
+    min-width: 150px;
+    padding: 20px 9px;
+    line-height: 0;
+  }
+}
