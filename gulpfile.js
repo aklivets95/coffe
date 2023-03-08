@@ -145,8 +145,6 @@ export function buildProd (done) {
 export function runDev (done) {
   gulp.series(
     deleteBuild,
-    compileProject,
-    startServer,
-    watchFiles
+    compileProject
   )(done);
 }
